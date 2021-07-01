@@ -38,6 +38,9 @@
 
     // 使用CTFrame在CGContextRef上下文上绘制
     CTFrameDraw(frame, context);
+    
+    
+    
 }
 
 @end
