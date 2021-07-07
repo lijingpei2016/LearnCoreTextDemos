@@ -38,6 +38,10 @@
 
     // 在context这个画布里，渲染frame的内容，  相当于context就是一个窗口，frame是幅画的内容，窗口可能可以看到部分、完整、恰好相等的画，如果窗口小，画大，那就只能看到一部分
     CTFrameDraw(frame, context);
+    
+    // 释放内存
+    CFRelease(framesetter);
+    CFRelease(frame);
 }
 
 @end
