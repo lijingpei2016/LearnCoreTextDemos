@@ -187,11 +187,11 @@
 			isa = PBXGroup;
 			children = (
 				169D0E98269AF6AE00846990 /* ImageItem.h */,
-				169D0E99269AF6AE00846990 /* RichTextDataComposer.m */,
-				169D0E9A269AF6AE00846990 /* RichTextData.m */,
 				169D0E9B269AF6AE00846990 /* ImageItem.m */,
 				169D0E9C269AF6AE00846990 /* RichTextData.h */,
+				169D0E9A269AF6AE00846990 /* RichTextData.m */,
 				169D0E9D269AF6AE00846990 /* RichTextDataComposer.h */,
+				169D0E99269AF6AE00846990 /* RichTextDataComposer.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";

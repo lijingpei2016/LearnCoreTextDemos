@@ -71,7 +71,7 @@
     // 3 设置占位使用的图片属性字符串
     // 参考：https://en.wikipedia.org/wiki/Specials_(Unicode_block)  U+FFFC ￼ OBJECT REPLACEMENT CHARACTER, placeholder in the text for another unspecified object, for example in a compound document.
     unichar objectReplacementChar = 0xFFFC;
-    NSMutableAttributedString *imagePlaceHolderAttributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithCharacters:&objectReplacementChar length:1] attributes:[self defaultTextAttributes]];
+    NSMutableAttributedString *imagePlaceHolderAttributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithCharacters:&objectReplacementChar length:1] attributes:nil];
     
     // 4 设置RunDelegate代理
     CFAttributedStringSetAttribute((CFMutableAttributedStringRef)imagePlaceHolderAttributeString, CFRangeMake(0, 1), kCTRunDelegateAttributeName, runDelegate);
@@ -103,13 +103,17 @@
     
     // CTFrameGetLines获取但CTFrame内容的行数
     NSArray *lines = (NSArray *)CTFrameGetLines(self.richTextData.ctFrame);
+    
     // CTFrameGetLineOrigins获取每一行的起始点，保存在lineOrigins数组中
     CGPoint lineOrigins[lines.count];
+    
     CTFrameGetLineOrigins(self.richTextData.ctFrame, CFRangeMake(0, 0), lineOrigins);
+    
     for (int i = 0; i < lines.count; i++) {
         CTLineRef line = (__bridge CTLineRef)lines[i];
         
         NSArray *runs = (NSArray *)CTLineGetGlyphRuns(line);
+        
         for (int j = 0; j < runs.count; j++) {
             CTRunRef run = (__bridge CTRunRef)(runs[j]);
             NSDictionary *attributes = (NSDictionary *)CTRunGetAttributes(run);

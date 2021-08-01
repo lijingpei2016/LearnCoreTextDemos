@@ -14,6 +14,7 @@
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextTranslateCTM(context, 0, self.bounds.size.height);

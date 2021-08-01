@@ -29,10 +29,12 @@
     // 设置配置的字典 比如字体 颜色
     NSDictionary *attributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:18],
                                   NSForegroundColorAttributeName: [UIColor orangeColor] };
+    
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"Hello CoreText Hello CoreText" attributes:attributes];
 
     // 存储材料，渲染的frame是根据渲染材料的完整度而得出的，比如我渲染一半或者百分之10，得出来的frame可能是不一样的
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attrStr);
+    
     //这里我的理解是，CTFramesetterRef提供内容，记录了所有文字（要渲染）内容，计算出来的是需要渲染的范围，比如我可以只渲染内容里的一部分，之所以要传一个path是因为我要确定宽，才可以得出高
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, attrStr.length), path, NULL);
 
