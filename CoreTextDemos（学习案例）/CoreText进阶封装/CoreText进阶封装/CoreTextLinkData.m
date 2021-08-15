@@ -9,6 +9,7 @@
 #import "CoreTextLinkData.h"
 
 @implementation CoreTextLinkData
+
 + (CoreTextLinkData *)touchLinkInView:(UIView *)view atPoint:(CGPoint)point data:(CoreTextData *)data {
     
     CTFrameRef ctFrame = data.ctFrame;
