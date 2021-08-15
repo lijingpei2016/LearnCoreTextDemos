@@ -14,7 +14,7 @@
     //创建一个上下文
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    //在Y轴上移动 height个单位   coretext的原点是在左下角  而我们平时的ui控件是在左上角
+    //在Y轴上移动 height个单位 coretext的原点是在左下角  而我们平时的ui控件是在左上角
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
 
     //在上下文中更改用户坐标系的比例。
@@ -44,6 +44,20 @@
     // 释放内存
     CFRelease(framesetter);
     CFRelease(frame);
+}
+
+- (void)moxiebuzhou
+{
+    //默写步骤
+//    创建一个context
+//    移动Y轴H的高度
+//    反转一次X轴，这样子context的原点和UI的原点一样了
+//    规定好path ，计算宽高用的，现在认为就是知道宽，计算高
+//    创建attubristring，传参是字体，颜色，等参数的字典
+//    准备材料，frameset
+//    计算frame
+//    渲染
+//    释放内存
 }
 
 @end
