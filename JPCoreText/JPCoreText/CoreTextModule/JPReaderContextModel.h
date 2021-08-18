@@ -30,11 +30,4 @@
 
 - (void)readyDataWithBounds:(CGRect)bounds;
 
-
-- (void)setupAttributedString;
-
-- (void)setupCTFrameWithBounds:(CGRect)bounds;
-
-- (void)setupPageDataWithBounds:(CGRect)bounds;
-
 @end

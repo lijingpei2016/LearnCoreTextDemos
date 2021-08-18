@@ -5,6 +5,9 @@
 //  Created by LJP on 2021/8/15.
 //
 
+#define kItemModelKey @"kItemModelKey"
+
+
 #import <Foundation/Foundation.h>
 #import "JPReaderContextModel.h"
 

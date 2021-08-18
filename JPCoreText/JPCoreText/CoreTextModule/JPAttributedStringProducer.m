@@ -78,7 +78,7 @@
     NSMutableAttributedString *aAttrString = [[NSMutableAttributedString alloc] initWithString:model.text attributes:param];
 
     //把model存储起来
-    CFAttributedStringSetAttribute((CFMutableAttributedStringRef)aAttrString, CFRangeMake(0, aAttrString.length), (CFStringRef)@"kItemmodel", (__bridge CFTypeRef)(model));
+    CFAttributedStringSetAttribute((CFMutableAttributedStringRef)aAttrString, CFRangeMake(0, aAttrString.length), (CFStringRef)kItemModelKey, (__bridge CFTypeRef)(model));
 
     return aAttrString;
 }
@@ -104,7 +104,7 @@
     CFAttributedStringSetAttribute((CFMutableAttributedStringRef)imagePlaceHolderAbs, CFRangeMake(0, 1), kCTRunDelegateAttributeName, runDelegate);
 
     //把model存储起来
-    CFAttributedStringSetAttribute((CFMutableAttributedStringRef)imagePlaceHolderAbs, CFRangeMake(0, imagePlaceHolderAbs.length), (CFStringRef)@"kItemmodel", (__bridge CFTypeRef)(model));
+    CFAttributedStringSetAttribute((CFMutableAttributedStringRef)imagePlaceHolderAbs, CFRangeMake(0, imagePlaceHolderAbs.length), (CFStringRef)kItemModelKey, (__bridge CFTypeRef)(model));
 
     if (runDelegate) {
         CFRelease(runDelegate);
