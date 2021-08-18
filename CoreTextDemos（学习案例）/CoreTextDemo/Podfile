@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CoreTextDemo' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for CoreTextDemo
+  # 基础测试组件
+  pod 'PTTestKit', :path => 'DevPods/PTTestKit'
+  pod 'Masonry'
+  pod 'BlocksKit'
+
+  target 'CoreTextDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CoreTextDemoUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
