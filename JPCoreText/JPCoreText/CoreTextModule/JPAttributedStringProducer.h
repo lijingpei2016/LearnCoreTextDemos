@@ -10,6 +10,12 @@
 
 @interface JPAttributedStringProducer : NSObject
 
-+ (NSMutableAttributedString *)createAttributedStringWithContextModel:(JPReaderContextModel *)model;
++ (void)createAttributedStringWithContextModel:(JPReaderContextModel *)model;
+
++ (void)createCTFrameWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model;
+
++ (void)createPageDataWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model;
+
++ (CTFrameRef)getCTFrameWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model index:(NSInteger)index;
 
 @end

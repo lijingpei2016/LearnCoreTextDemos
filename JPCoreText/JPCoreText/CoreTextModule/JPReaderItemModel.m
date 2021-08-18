@@ -16,6 +16,7 @@
         _font = [UIFont systemFontOfSize:16.0f];
         _fontSize = 16.0f;
         _textColor = [UIColor blackColor];
+        _lineSpace = 8.0f;
     }
     return self;
 }

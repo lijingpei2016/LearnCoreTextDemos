@@ -32,6 +32,9 @@ typedef NS_ENUM (NSInteger, JPReaderItemModelType) {
 /// 字体颜色
 @property (nonatomic, strong) UIColor *textColor;
 
+/// 字体行间距
+@property (nonatomic, assign) CGFloat lineSpace;
+
 /// 图片的路径
 @property (nonatomic, copy) NSString *imageURLString;
 
