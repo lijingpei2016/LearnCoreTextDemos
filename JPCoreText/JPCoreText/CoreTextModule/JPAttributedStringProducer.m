@@ -106,7 +106,9 @@
     //把model存储起来
     CFAttributedStringSetAttribute((CFMutableAttributedStringRef)imagePlaceHolderAbs, CFRangeMake(0, imagePlaceHolderAbs.length), (CFStringRef)@"kItemmodel", (__bridge CFTypeRef)(model));
 
-    CFRelease(runDelegate);
+    if (runDelegate) {
+        CFRelease(runDelegate);
+    }
 
     return imagePlaceHolderAbs;
 }
@@ -121,7 +123,10 @@
 
     model.ctFrame = ctFrame;
 
-    CFRelease(path);
+    if (path) {
+        CFRelease(path);
+    }
+    
     if (ctFramesetter) {
         CFRelease(ctFramesetter);
     }
@@ -170,8 +175,10 @@
 
     CTFrameRef ctFrame = CTFramesetterCreateFrame(ctFramesetter, CFRangeMake(loc, len), path, NULL);
 
-    CFRelease(path);
-//    CFRelease(ctFrame);
+    if (path) {
+        CFRelease(path);
+    }
+
     if (ctFramesetter) {
         CFRelease(ctFramesetter);
     }
