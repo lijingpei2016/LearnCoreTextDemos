@@ -121,8 +121,10 @@
 
     model.ctFrame = ctFrame;
 
-    CFRelease(ctFramesetter);
     CFRelease(path);
+    if (ctFramesetter) {
+        CFRelease(ctFramesetter);
+    }
 }
 
 + (void)createPageDataWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model {
@@ -170,6 +172,9 @@
 
     CFRelease(path);
 //    CFRelease(ctFrame);
+    if (ctFramesetter) {
+        CFRelease(ctFramesetter);
+    }
 
     return ctFrame;
 }

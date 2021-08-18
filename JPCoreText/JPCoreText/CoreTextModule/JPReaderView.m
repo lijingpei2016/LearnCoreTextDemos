@@ -31,6 +31,10 @@
     CTFrameRef ctFream = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds contextModel:self.contextModel index:self.index];
     
     CTFrameDraw(ctFream, context);
+    
+    if (ctFream) {
+        CFRelease(ctFream);
+    }
 }
 
 

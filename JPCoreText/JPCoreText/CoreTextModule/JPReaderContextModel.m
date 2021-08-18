@@ -10,6 +10,12 @@
 
 @implementation JPReaderContextModel
 
+- (void)dealloc {
+    if (_ctFrame) {
+        CFRelease(_ctFrame);
+    }
+}
+
 - (void)addItem:(JPReaderItemModel *)model {
     [self.itemArr addObject:model];
 }
@@ -44,6 +50,17 @@
         _locationArr = [[NSMutableArray alloc] init];
     }
     return _locationArr;
+}
+
+
+- (void)setCtFrame:(CTFrameRef)ctFrame {
+    if (_ctFrame != ctFrame) {
+        if (_ctFrame) {
+            CTFrameRef oldValue = _ctFrame;
+            CFRelease(oldValue);
+        }
+        _ctFrame = ctFrame;
+    }
 }
 
 @end
