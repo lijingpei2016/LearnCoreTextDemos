@@ -6,7 +6,7 @@
 //
 
 #import "JPReaderView.h"
-#import "JPAttributedStringProducer.h"
+#import "JPReaderDataProducer.h"
 
 @interface JPReaderView ()
 
@@ -29,7 +29,7 @@
     [[UIColor whiteColor] setFill];
     CGContextFillRect(context, rect);
 
-    CTFrameRef ctFream = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
+    CTFrameRef ctFream = [JPReaderDataProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
 
     CTFrameDraw(ctFream, context);
 
@@ -47,7 +47,7 @@
 //}
 
 - (void)getClickRunWithPoint:(CGPoint)point {
-    CTFrameRef frame = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
+    CTFrameRef frame = [JPReaderDataProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
 
     NSArray *lines = (NSArray *)CTFrameGetLines(frame);
 

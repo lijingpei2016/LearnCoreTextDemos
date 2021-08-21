@@ -5,17 +5,17 @@
 //  Created by LJP on 2021/8/17.
 //
 
-#import "PageViewController.h"
+#import "JPReaderPageViewController.h"
 #import "JPReaderView.h"
-#import "JPAttributedStringProducer.h"
+#import "JPReaderDataProducer.h"
 
-@interface PageViewController ()
+@interface JPReaderPageViewController ()
 
 @property (nonatomic, strong) JPReaderView *readerView;
 
 @end
 
-@implementation PageViewController
+@implementation JPReaderPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

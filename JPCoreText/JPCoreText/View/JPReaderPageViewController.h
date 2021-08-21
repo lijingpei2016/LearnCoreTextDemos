@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "JPReaderChapterModel.h"
 
-@interface PageViewController : UIViewController
+@interface JPReaderPageViewController : UIViewController
 
 @property (nonatomic, strong) JPReaderChapterModel *contextModel;
 @property (nonatomic, assign) NSInteger index;

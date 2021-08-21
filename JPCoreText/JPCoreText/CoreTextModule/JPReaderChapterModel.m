@@ -6,7 +6,7 @@
 //
 
 #import "JPReaderChapterModel.h"
-#import "JPAttributedStringProducer.h"
+#import "JPReaderDataProducer.h"
 
 @implementation JPReaderChapterModel
 
@@ -27,15 +27,15 @@
 }
 
 - (void)setupAttributedString {
-    [JPAttributedStringProducer createAttributedStringWithChapterModel:self];
+    [JPReaderDataProducer createAttributedStringWithChapterModel:self];
 }
 
 - (void)setupCTFrameWithBounds:(CGRect)bounds {
-    [JPAttributedStringProducer createCTFrameWithBounds:bounds chapterModel:self];
+    [JPReaderDataProducer createCTFrameWithBounds:bounds chapterModel:self];
 }
 
 - (void)setupPageDataWithBounds:(CGRect)bounds {
-    [JPAttributedStringProducer createPageDataWithBounds:bounds chapterModel:self];
+    [JPReaderDataProducer createPageDataWithBounds:bounds chapterModel:self];
 }
 
 - (NSMutableArray<JPReaderItemModel *> *)itemArr {

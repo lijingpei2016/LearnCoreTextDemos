@@ -5,16 +5,16 @@
 //  Created by LJP on 2021/8/15.
 //
 
-#import "JPAttributedStringProducer.h"
+#import "JPReaderDataProducer.h"
 
-@implementation JPAttributedStringProducer
+@implementation JPReaderDataProducer
 
 /// 根据总model生成AttributedString
 + (void)createAttributedStringWithChapterModel:(JPReaderChapterModel *)model {
     NSMutableAttributedString *aAttrString = [[NSMutableAttributedString alloc] init];
 
     for (JPReaderItemModel *item in model.itemArr) {
-        NSMutableAttributedString *itemString = [JPAttributedStringProducer createAttributedStringWithItemModel:item];
+        NSMutableAttributedString *itemString = [JPReaderDataProducer createAttributedStringWithItemModel:item];
         if (itemString) {
             [aAttrString appendAttributedString:itemString];
         }
@@ -29,9 +29,9 @@
     NSMutableAttributedString *aAttrString;
 
     if (model.type == JPReaderItemModelTypeText) {
-        aAttrString = [JPAttributedStringProducer creatTextAttributeWithItemModel:model];
+        aAttrString = [JPReaderDataProducer creatTextAttributeWithItemModel:model];
     } else if (model.type == JPReaderItemModelTypeImage) {
-        aAttrString = [JPAttributedStringProducer creatImageAttributeWithItemModel:model];
+        aAttrString = [JPReaderDataProducer creatImageAttributeWithItemModel:model];
     } else if (model.type == JPReaderItemModelTypeLine) {
         NSLog(@"这里写有下划线的");
     } else {
@@ -72,7 +72,7 @@
 
 /// 创建文字的富文本
 + (NSMutableAttributedString *)creatTextAttributeWithItemModel:(JPReaderItemModel *)model {
-    NSDictionary *param = [JPAttributedStringProducer creatAttributeParamWithItemModel:model];
+    NSDictionary *param = [JPReaderDataProducer creatAttributeParamWithItemModel:model];
     NSMutableAttributedString *aAttrString = [[NSMutableAttributedString alloc] initWithString:model.text attributes:param];
 
     //把model存储起来

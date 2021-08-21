@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "JPReaderChapterModel.h"
 
-@interface JPAttributedStringProducer : NSObject
+@interface JPReaderDataProducer : NSObject
 
 + (void)createAttributedStringWithChapterModel:(JPReaderChapterModel *)model;
 

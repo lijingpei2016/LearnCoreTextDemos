@@ -6,7 +6,7 @@
 //
 
 #import "ViewController.h"
-#import "PageViewController.h"
+#import "JPReaderPageViewController.h"
 #import "JPReaderView.h"
 
 @interface ViewController ()<UIPageViewControllerDelegate, UIPageViewControllerDataSource>
@@ -62,7 +62,7 @@
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
 
-    PageViewController *firVC = [self viewControllerAtIndex:self.currentIndex];
+    JPReaderPageViewController *firVC = [self viewControllerAtIndex:self.currentIndex];
     NSArray *viewControllers = [NSArray arrayWithObject:firVC];
     [_pageViewController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionReverse
@@ -94,8 +94,8 @@
 
 #pragma mark ========================= 私有方法 =========================
 
-- (PageViewController *)viewControllerAtIndex:(NSUInteger)index {
-    PageViewController *vc = [[PageViewController alloc] init];
+- (JPReaderPageViewController *)viewControllerAtIndex:(NSUInteger)index {
+    JPReaderPageViewController *vc = [[JPReaderPageViewController alloc] init];
     vc.contextModel = self.contextModel;
     vc.index = index;
     return vc;
