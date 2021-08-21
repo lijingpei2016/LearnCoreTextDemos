@@ -9,16 +9,16 @@
 
 
 #import <Foundation/Foundation.h>
-#import "JPReaderContextModel.h"
+#import "JPReaderChapterModel.h"
 
 @interface JPAttributedStringProducer : NSObject
 
-+ (void)createAttributedStringWithContextModel:(JPReaderContextModel *)model;
++ (void)createAttributedStringWithChapterModel:(JPReaderChapterModel *)model;
 
-+ (void)createCTFrameWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model;
++ (void)createCTFrameWithBounds:(CGRect)bounds chapterModel:(JPReaderChapterModel *)model;
 
-+ (void)createPageDataWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model;
++ (void)createPageDataWithBounds:(CGRect)bounds chapterModel:(JPReaderChapterModel *)model;
 
-+ (CTFrameRef)getCTFrameWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model index:(NSInteger)index;
++ (CTFrameRef)getCTFrameWithBounds:(CGRect)bounds chapterModel:(JPReaderChapterModel *)model index:(NSInteger)index;
 
 @end

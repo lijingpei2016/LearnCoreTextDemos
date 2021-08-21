@@ -9,7 +9,7 @@
 #import "JPReaderItemModel.h"
 #import <CoreText/CoreText.h>
 
-@interface JPReaderContextModel : NSObject
+@interface JPReaderChapterModel : NSObject
 
 /// 装每个节点数据的数组
 @property (nonatomic, strong) NSMutableArray <JPReaderItemModel *> *itemArr;

@@ -10,7 +10,7 @@
 @implementation JPAttributedStringProducer
 
 /// 根据总model生成AttributedString
-+ (void)createAttributedStringWithContextModel:(JPReaderContextModel *)model {
++ (void)createAttributedStringWithChapterModel:(JPReaderChapterModel *)model {
     NSMutableAttributedString *aAttrString = [[NSMutableAttributedString alloc] init];
 
     for (JPReaderItemModel *item in model.itemArr) {
@@ -45,12 +45,11 @@
 + (NSDictionary *)creatAttributeParamWithItemModel:(JPReaderItemModel *)model {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 
-    [dict setValue:model.font forKey:NSFontAttributeName];
-    [dict setValue:model.textColor forKey:NSForegroundColorAttributeName];
-    
-    
+    [dict setValue:model.configModel.font forKey:NSFontAttributeName];
+    [dict setValue:model.configModel.textColor forKey:NSForegroundColorAttributeName];
+
     //间距
-    CGFloat lineSpace = model.lineSpace;
+    CGFloat lineSpace = model.configModel.lineSpace;
     const CFIndex kNumberOfSettings = 3;
     CTParagraphStyleSetting theSettings[kNumberOfSettings] = {
         {
@@ -65,7 +64,6 @@
     };
     CTParagraphStyleRef theParagraphRef = CTParagraphStyleCreate(theSettings, kNumberOfSettings);
     dict[(id)kCTParagraphStyleAttributeName] = (__bridge id)theParagraphRef;
-
 
     //剩下的后面可以补充
 
@@ -114,7 +112,7 @@
 }
 
 /// 绘画之前的准备
-+ (void)createCTFrameWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model {
++ (void)createCTFrameWithBounds:(CGRect)bounds chapterModel:(JPReaderChapterModel *)model {
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, (CGRect) { { 0, 0 }, bounds.size });
 
@@ -126,13 +124,13 @@
     if (path) {
         CFRelease(path);
     }
-    
+
     if (ctFramesetter) {
         CFRelease(ctFramesetter);
     }
 }
 
-+ (void)createPageDataWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model {
++ (void)createPageDataWithBounds:(CGRect)bounds chapterModel:(JPReaderChapterModel *)model {
     CGPathRef path = CGPathCreateWithRect(bounds, NULL);
     CFRange range = CFRangeMake(0, 0);
     NSUInteger rangeOffset = 0;
@@ -149,12 +147,12 @@
             CFRelease(frame);
         }
     } while (range.location + range.length < model.attrString.length);
-    
+
     NSNumber *last = model.locationArr.lastObject;
     if (model.attrString.length > last.integerValue) {
         [model.locationArr addObject:@(model.attrString.length)];
     }
-    
+
     if (path) {
         CFRelease(path);
     }
@@ -163,8 +161,7 @@
     }
 }
 
-+ (CTFrameRef)getCTFrameWithBounds:(CGRect)bounds contextModel:(JPReaderContextModel *)model index:(NSInteger)index {
-    
++ (CTFrameRef)getCTFrameWithBounds:(CGRect)bounds chapterModel:(JPReaderChapterModel *)model index:(NSInteger)index {
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, (CGRect) { { 0, 0 }, bounds.size });
 

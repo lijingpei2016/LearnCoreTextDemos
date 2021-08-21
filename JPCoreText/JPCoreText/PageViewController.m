@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)setContextModel:(JPReaderContextModel *)contextModel {
+- (void)setContextModel:(JPReaderChapterModel *)contextModel {
     _contextModel = contextModel;
     self.readerView.contextModel = contextModel;
     [self.view addSubview:self.readerView];

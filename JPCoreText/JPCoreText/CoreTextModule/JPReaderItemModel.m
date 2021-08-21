@@ -13,10 +13,7 @@
 {
     self = [super init];
     if (self) {
-        _font = [UIFont systemFontOfSize:16.0f];
-        _fontSize = 16.0f;
-        _textColor = [UIColor blackColor];
-        _lineSpace = 8.0f;
+        _configModel = [[JPReaderConfigModel alloc] init];
     }
     return self;
 }

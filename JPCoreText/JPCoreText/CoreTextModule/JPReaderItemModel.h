@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
+#import "JPReaderConfigModel.h"
 
 typedef void (^ClickHandler)(id obj);
 
@@ -23,17 +24,7 @@ typedef NS_ENUM (NSInteger, JPReaderItemModelType) {
 /// 类型
 @property (nonatomic, assign) JPReaderItemModelType type;
 
-/// 字体
-@property (nonatomic, strong) UIFont *font;
-
-/// 字体大小 可能不需要
-@property (nonatomic, assign) CGFloat fontSize;
-
-/// 字体颜色
-@property (nonatomic, strong) UIColor *textColor;
-
-/// 字体行间距
-@property (nonatomic, assign) CGFloat lineSpace;
+@property (nonatomic, strong) JPReaderConfigModel *configModel;
 
 /// 图片的路径
 @property (nonatomic, copy) NSString *imageURLString;
@@ -47,8 +38,5 @@ typedef NS_ENUM (NSInteger, JPReaderItemModelType) {
 
 /// 点击回调事件
 @property (nonatomic, copy) ClickHandler clickActionHandler;
-
-///// 文本绘制的区域 先不需要
-//@property (nonatomic, assign) CTFrameRef ctFrame;
 
 @end

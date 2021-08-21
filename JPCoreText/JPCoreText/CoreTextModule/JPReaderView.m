@@ -14,6 +14,8 @@
 
 @implementation JPReaderView
 
+
+
 - (void)drawRect:(CGRect)rect {
     if (self.contextModel == nil) {
         return;
@@ -27,7 +29,7 @@
     [[UIColor whiteColor] setFill];
     CGContextFillRect(context, rect);
 
-    CTFrameRef ctFream = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds contextModel:self.contextModel index:self.index];
+    CTFrameRef ctFream = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
 
     CTFrameDraw(ctFream, context);
 
@@ -36,16 +38,16 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = event.allTouches.anyObject;
-    if (touch.view == self) {
-        CGPoint point = [touch locationInView:touch.view];
-        [self getClickRunWithPoint:point];
-    }
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    UITouch *touch = event.allTouches.anyObject;
+//    if (touch.view == self) {
+//        CGPoint point = [touch locationInView:touch.view];
+//        [self getClickRunWithPoint:point];
+//    }
+//}
 
 - (void)getClickRunWithPoint:(CGPoint)point {
-    CTFrameRef frame = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds contextModel:self.contextModel index:self.index];
+    CTFrameRef frame = [JPAttributedStringProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
 
     NSArray *lines = (NSArray *)CTFrameGetLines(frame);
 
@@ -60,7 +62,7 @@
 
         for (int j = 0; j < runs.count; j++) {
             CTRunRef run = (__bridge CTRunRef)(runs[j]);
-            
+
             NSDictionary *param = (NSDictionary *)CTRunGetAttributes(run);
             JPReaderItemModel *model = param[kItemModelKey];
 
@@ -80,15 +82,15 @@
             if (contains) {
                 if (model.clickActionHandler) {
                     model.clickActionHandler(nil);
-                }else {
+                } else {
                     UIView *coverView = [[UIView alloc] initWithFrame:clickableFrame];
                     coverView.backgroundColor = [UIColor colorWithRed:0.3 green:1 blue:1 alpha:0.3];
                     coverView.layer.cornerRadius = 3;
                     [self addSubview:coverView];
-                    
+
                     [UIView animateWithDuration:1 animations:^{
                         coverView.alpha = 0;
-                    }completion:^(BOOL finished) {
+                    } completion:^(BOOL finished) {
                         [coverView removeFromSuperview];
                     }];
                 }

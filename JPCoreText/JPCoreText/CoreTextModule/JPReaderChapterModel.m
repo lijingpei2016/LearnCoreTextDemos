@@ -5,10 +5,10 @@
 //  Created by LJP on 2021/8/15.
 //
 
-#import "JPReaderContextModel.h"
+#import "JPReaderChapterModel.h"
 #import "JPAttributedStringProducer.h"
 
-@implementation JPReaderContextModel
+@implementation JPReaderChapterModel
 
 - (void)dealloc {
     if (_ctFrame) {
@@ -27,15 +27,15 @@
 }
 
 - (void)setupAttributedString {
-    [JPAttributedStringProducer createAttributedStringWithContextModel:self];
+    [JPAttributedStringProducer createAttributedStringWithChapterModel:self];
 }
 
 - (void)setupCTFrameWithBounds:(CGRect)bounds {
-    [JPAttributedStringProducer createCTFrameWithBounds:bounds contextModel:self];
+    [JPAttributedStringProducer createCTFrameWithBounds:bounds chapterModel:self];
 }
 
 - (void)setupPageDataWithBounds:(CGRect)bounds {
-    [JPAttributedStringProducer createPageDataWithBounds:bounds contextModel:self];
+    [JPAttributedStringProducer createPageDataWithBounds:bounds chapterModel:self];
 }
 
 - (NSMutableArray<JPReaderItemModel *> *)itemArr {

@@ -18,8 +18,9 @@
 		161C748E26C91D7A000AFA36 /* JPCoreTextUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C748D26C91D7A000AFA36 /* JPCoreTextUITests.m */; };
 		161C749E26C92292000AFA36 /* JPReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C749D26C92292000AFA36 /* JPReaderView.m */; };
 		161C74AA26C928D3000AFA36 /* JPReaderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C74A926C928D3000AFA36 /* JPReaderItemModel.m */; };
-		161C74AD26C95DF4000AFA36 /* JPReaderContextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C74AC26C95DF4000AFA36 /* JPReaderContextModel.m */; };
+		161C74AD26C95DF4000AFA36 /* JPReaderChapterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C74AC26C95DF4000AFA36 /* JPReaderChapterModel.m */; };
 		161C74B026C96082000AFA36 /* JPAttributedStringProducer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161C74AF26C96082000AFA36 /* JPAttributedStringProducer.m */; };
+		162F9E2F26D0A6BD004DC8B0 /* JPReaderConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 162F9E2E26D0A6BD004DC8B0 /* JPReaderConfigModel.m */; };
 		16BB356F26CB377F009552DB /* bookData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16BB356E26CB377F009552DB /* bookData.plist */; };
 		16BB357226CBDD44009552DB /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BB357126CBDD44009552DB /* PageViewController.m */; };
 /* End PBXBuildFile section */
@@ -64,10 +65,12 @@
 		161C749D26C92292000AFA36 /* JPReaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPReaderView.m; sourceTree = "<group>"; };
 		161C74A826C928D3000AFA36 /* JPReaderItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPReaderItemModel.h; sourceTree = "<group>"; };
 		161C74A926C928D3000AFA36 /* JPReaderItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPReaderItemModel.m; sourceTree = "<group>"; };
-		161C74AB26C95DF4000AFA36 /* JPReaderContextModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPReaderContextModel.h; sourceTree = "<group>"; };
-		161C74AC26C95DF4000AFA36 /* JPReaderContextModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPReaderContextModel.m; sourceTree = "<group>"; };
+		161C74AB26C95DF4000AFA36 /* JPReaderChapterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPReaderChapterModel.h; sourceTree = "<group>"; };
+		161C74AC26C95DF4000AFA36 /* JPReaderChapterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPReaderChapterModel.m; sourceTree = "<group>"; };
 		161C74AE26C96081000AFA36 /* JPAttributedStringProducer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPAttributedStringProducer.h; sourceTree = "<group>"; };
 		161C74AF26C96082000AFA36 /* JPAttributedStringProducer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPAttributedStringProducer.m; sourceTree = "<group>"; };
+		162F9E2D26D0A6BD004DC8B0 /* JPReaderConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPReaderConfigModel.h; sourceTree = "<group>"; };
+		162F9E2E26D0A6BD004DC8B0 /* JPReaderConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPReaderConfigModel.m; sourceTree = "<group>"; };
 		16BB356E26CB377F009552DB /* bookData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = bookData.plist; sourceTree = "<group>"; };
 		16BB357026CBDD44009552DB /* PageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		16BB357126CBDD44009552DB /* PageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
@@ -163,10 +166,12 @@
 			children = (
 				161C749C26C92292000AFA36 /* JPReaderView.h */,
 				161C749D26C92292000AFA36 /* JPReaderView.m */,
+				162F9E2D26D0A6BD004DC8B0 /* JPReaderConfigModel.h */,
+				162F9E2E26D0A6BD004DC8B0 /* JPReaderConfigModel.m */,
 				161C74A826C928D3000AFA36 /* JPReaderItemModel.h */,
 				161C74A926C928D3000AFA36 /* JPReaderItemModel.m */,
-				161C74AB26C95DF4000AFA36 /* JPReaderContextModel.h */,
-				161C74AC26C95DF4000AFA36 /* JPReaderContextModel.m */,
+				161C74AB26C95DF4000AFA36 /* JPReaderChapterModel.h */,
+				161C74AC26C95DF4000AFA36 /* JPReaderChapterModel.m */,
 				161C74AE26C96081000AFA36 /* JPAttributedStringProducer.h */,
 				161C74AF26C96082000AFA36 /* JPAttributedStringProducer.m */,
 			);
@@ -306,9 +311,10 @@
 				161C746E26C91D76000AFA36 /* ViewController.m in Sources */,
 				161C746826C91D76000AFA36 /* AppDelegate.m in Sources */,
 				161C747926C91D7A000AFA36 /* main.m in Sources */,
-				161C74AD26C95DF4000AFA36 /* JPReaderContextModel.m in Sources */,
+				161C74AD26C95DF4000AFA36 /* JPReaderChapterModel.m in Sources */,
 				16BB357226CBDD44009552DB /* PageViewController.m in Sources */,
 				161C749E26C92292000AFA36 /* JPReaderView.m in Sources */,
+				162F9E2F26D0A6BD004DC8B0 /* JPReaderConfigModel.m in Sources */,
 				161C746B26C91D76000AFA36 /* SceneDelegate.m in Sources */,
 				161C74AA26C928D3000AFA36 /* JPReaderItemModel.m in Sources */,
 				161C74B026C96082000AFA36 /* JPAttributedStringProducer.m in Sources */,

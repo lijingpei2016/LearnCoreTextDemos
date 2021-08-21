@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) NSArray *dataArr;
 
-@property (nonatomic, strong) JPReaderContextModel *contextModel;
+@property (nonatomic, strong) JPReaderChapterModel *contextModel;
 
 @property (nonatomic, assign) NSInteger currentIndex;
 
@@ -43,7 +43,7 @@
                                                                      ofType:@"plist"]];
     NSArray *dataArr = [bookDict valueForKey:@"data"];
 
-    JPReaderContextModel *contextModel = [[JPReaderContextModel alloc] init];
+    JPReaderChapterModel *contextModel = [[JPReaderChapterModel alloc] init];
 
     for (NSString *temp in dataArr) {
         NSData *sData = [[NSData alloc]initWithBase64EncodedString:temp options:NSDataBase64DecodingIgnoreUnknownCharacters];

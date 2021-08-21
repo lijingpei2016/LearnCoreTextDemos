@@ -6,11 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JPReaderContextModel.h"
+#import "JPReaderChapterModel.h"
 
 @interface JPReaderView : UIView
 
-@property (nonatomic, strong) JPReaderContextModel *contextModel;
+@property (nonatomic, strong) JPReaderChapterModel *contextModel;
 @property (nonatomic, assign) NSInteger index;
 
 @end
