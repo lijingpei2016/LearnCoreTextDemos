@@ -9,7 +9,10 @@
 #import "JPReaderItemModel.h"
 #import <CoreText/CoreText.h>
 
+/// 本model为每一章节的model
 @interface JPReaderChapterModel : NSObject
+
+@property (nonatomic, copy) NSString *chapterName;
 
 /// 装每个节点数据的数组
 @property (nonatomic, strong) NSMutableArray <JPReaderItemModel *> *itemArr;

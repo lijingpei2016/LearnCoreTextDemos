@@ -11,21 +11,35 @@
 
 @interface JPReaderPageViewController ()
 
+@property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) JPReaderView *readerView;
 
 @end
 
 @implementation JPReaderPageViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setupUI];
+    }
+    return self;
+}
+
+- (void)setupUI {
     self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.titleLabel];
+    [self.view addSubview:self.readerView];
 }
 
 - (void)setContextModel:(JPReaderChapterModel *)contextModel {
     _contextModel = contextModel;
+    
     self.readerView.contextModel = contextModel;
-    [self.view addSubview:self.readerView];
+    
+    self.titleLabel.text = contextModel.chapterName;
+
 }
 
 - (void)setIndex:(NSInteger)index {
@@ -35,9 +49,17 @@
 
 - (JPReaderView *)readerView {
     if (_readerView == nil) {
-        _readerView = [[JPReaderView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height - 200)];
+        _readerView = [[JPReaderView alloc] initWithFrame:CGRectMake(10, 100, self.view.frame.size.width-20, self.view.frame.size.height - 200)];
     }
     return _readerView;
+}
+
+- (UILabel *)titleLabel {
+    if (_titleLabel == nil) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 60, 200, 20)];
+        _titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:14];
+    }
+    return _titleLabel;
 }
 
 @end

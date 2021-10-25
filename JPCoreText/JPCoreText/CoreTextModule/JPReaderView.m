@@ -38,13 +38,13 @@
     }
 }
 
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    UITouch *touch = event.allTouches.anyObject;
-//    if (touch.view == self) {
-//        CGPoint point = [touch locationInView:touch.view];
-//        [self getClickRunWithPoint:point];
-//    }
-//}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = event.allTouches.anyObject;
+    if (touch.view == self) {
+        CGPoint point = [touch locationInView:touch.view];
+        [self getClickRunWithPoint:point];
+    }
+}
 
 - (void)getClickRunWithPoint:(CGPoint)point {
     CTFrameRef frame = [JPReaderDataProducer getCTFrameWithBounds:self.bounds chapterModel:self.contextModel index:self.index];
